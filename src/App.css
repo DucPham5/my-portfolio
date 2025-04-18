@@ -15,19 +15,27 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 .portfolio-wrapper{
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height:100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding-top: 2rem; /* pushes content down without creating external gap */
+  box-shadow: 0 0 30px 10px rgba(255, 165, 0, 0.4) inset;
+
 }
 .nav-sections{
+  position: sticky;
+  top:0;
   display: flex;
   gap:15px;
   border-radius: 20px;
@@ -55,20 +63,47 @@
 
 .nav-sections a:hover {
   color: #ffd580; /* light orange */
-  text-shadow: 0 0 5px rgba(255, 165, 0, 0.6);
+  text-shadow:
+  0 0 4px rgba(255, 165, 0, 0.7),
+  0 0 10px rgba(255, 140, 0, 0.5),
+  0 0 20px rgba(255, 120, 0, 0.3);;
   transform: scale(1.1);
 }
 .aboutMe{
+  min-height: 100vh;
+  scroll-margin-top: 50px;
   width:80%;
 }
 
 .aboutMe h1{
-  color:rgba(255, 165, 0, 0.6);
+  color:white;
   text-align: left;
+  text-shadow: 
+  0 0 5px rgba(0, 194, 255, 0.8),
+  0 0 10px rgba(0, 194, 255, 0.6);  /* optional: extend the glow */
+}
+
+.aboutMe h2{
+  margin-top: 50px;
+  color: white;
+  text-shadow:
+  0 0 5px rgba(0, 194, 255, 0.8),
+  0 0 10px rgba(0, 194, 255, 0.6);
+
 }
 
 .aboutMe p{
-  color: rgba(255, 165, 0, 0.6);
+  /* color: rgba(255, 165, 0, 0.6); */
+  color: white;
   text-align: left;
-  font-size: 25px;
+  font-size: 30px;
+  text-shadow: 
+  0 0 4px rgba(255, 165, 0, 0.7),
+  0 0 10px rgba(255, 140, 0, 0.5),
+  0 0 20px rgba(255, 120, 0, 0.3);
+}
+
+.Projects{
+  width: 80%;
+  margin-top: 100px;
 }
