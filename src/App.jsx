@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import {motion} from "framer-motion"
-import myImage from './assets/IMG_8452.jpg';
 import './App.css'
 
 function App() {
-  const header = "Hello, I'm Duc".split(" ")
-  const intro = "Welcome to my personal portfolio! I am a Computer Science student at the University of Houston and currently serve as an Academic Support Assistant.".split(" ")
+  const header = "> Duc Pham".split(" ")
+  const intro = "Welcome to my personal portfolio! I am a Computer Science student at the University of Houston and am an incoming software engineering intern at Boeing.".split(" ")
   const interest = " My interests lie in full-stack development, user experience, and scalable software design. I enjoy working on projects that combine functionality with clean, modern design, and I’m always seeking opportunities to grow as a developer.".split(" ")
   return (
     <div className = "portfolio-wrapper">
@@ -14,6 +13,8 @@ function App() {
       <a href="#Projects">Projects</a>
       <a href="#Contact">Contact</a>
     </nav>
+    {/*end of navbar */}
+
     <motion.section 
     id = "aboutMe" 
     className = "aboutMe"
@@ -22,6 +23,7 @@ function App() {
     transition={{ duration: 0.6, ease: "easeOut" }}
     viewport={{ once: false, amount: 0.4 }}
     >
+      <div class = "aboutMe-title">
       <h1>{header.map((el, i) => (
         <motion.span
           initial={{ opacity: 0 }}
@@ -35,12 +37,14 @@ function App() {
           {el}{" "}
         </motion.span>
       ))}</h1>
+      </div>
+      <div class = "aboutMe-description">
       <p>{intro.map((el, i) => (
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
-            delay:  i * 0.1 + header.length * 0.1 + 0.3, 
+            delay:  header.length * 0.1 + 1.0, 
             duration: 0.5
           }}
           key={i}
@@ -48,46 +52,10 @@ function App() {
           {el}{" "}
         </motion.span>
       ))}</p>
-      <p>{interest.map((el, i) => (
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay:  i * 0.1 + intro.length * 0.1 + 0.5, 
-            duration: 0.5
-          }}
-          key={i}
-        >
-          {el}{" "}
-        </motion.span>
-      ))}</p>
-      <motion.div 
-      className = "resume-wrapper"
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: false, amount: 0.2 }}>
-      <a href="/Duc_Pham_Resume_41525.pdf" target = "_blank" onClick={()=>setMyResumeSelected(true)}>
-        <h2>My Resume</h2>
-        </a>
-            <div className = "resume-preview-container">
-          
-          <embed 
-              src="/Duc_Pham_Resume_41525.pdf#toolbar=0&navpanes=0&scrollbar=0" 
-              type="application/pdf" 
-              width="80%" 
-              height="400px" 
-              style={{
-               
-                borderRadius: "20px"
-              }}
-            />
-        </div>
-
-
-        
-      </motion.div>
+      </div>
     </motion.section>
+    {/*end of aboutMe section */}
+
     <motion.section 
     id = "Projects" 
     className = "Projects"
@@ -96,11 +64,39 @@ function App() {
     transition={{ duration: 0.6, ease: "easeOut" }}
     viewport={{ once: false, amount: 0.3 }}
     >
+      <h2>Projects</h2>
+      <div className = "projects-container">
+          <div className = "projects">
+
+          </div>
+          <div className = "projects">
+            
+          </div>
+          <div className = "projects">
+            
+          </div>
+
+
+      </div>
+
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum dignissimos at error odit doloremque quam explicabo numquam. Vero nam eos laboriosam voluptatem exercitationem accusantium dolorum aliquam, fugit eaque natus!</p>
     </motion.section>
+    {/*end of projects section */}
+
     <motion.section id = "Contact"> 
 
     </motion.section>
+    {/*end of contact section */}
+
+
+      <motion.section 
+      className = "contact"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: false, amount: 0.2 }}>
+        
+      </motion.section>
     </div>
   )
 }

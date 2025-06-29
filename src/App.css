@@ -29,28 +29,29 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 2rem; /* pushes content down without creating external gap */
-  box-shadow: 0 0 30px 10px rgba(255, 165, 0, 0.4) inset;
+  padding-top: 0rem; /* pushes content down without creating external gap */
+
 
 }
 .nav-sections{
-  position: sticky;
+  width: 100%;
+  max-width: 100%;
   top:0;
+  right: 0;
   display: flex;
-  gap:15px;
+  gap:30px;
   border-radius: 20px;
-  background-color: #1a1a1a;
   padding: 1rem;
-  box-shadow: 0 5px 40px rgba(255, 165, 0, 0.4); /* orange mist/glow */
   backdrop-filter: blur(4px); 
   flex-wrap: wrap;       /* allow items to wrap instead of stretching */
-  justify-content: center; /* keeps nav items centered */
-  max-width: fit-content; /* optional: shrink nav to content width */
-  margin: 0 auto;
-  
+  justify-content: flex-end; /* keeps nav items centered */
+  margin-left: auto;
+  box-sizing: border-box;
+  margin-top: 25px;
 }
 
 .nav-sections a{
+  position:relative;
   color:white;
   font-size: 1.5rem; 
   font-weight: bold; 
@@ -62,49 +63,44 @@ html {
 }
 
 .nav-sections a:hover {
-  color: #ffd580; /* light orange */
-  text-shadow:
-  0 0 4px rgba(255, 165, 0, 0.7),
-  0 0 10px rgba(255, 140, 0, 0.5),
-  0 0 20px rgba(255, 120, 0, 0.3);;
-  transform: scale(1.1);
+  color: white; 
+  text-shadow: 
+  0 0 5px rgba(0, 194, 255, 1),
+  0 0 10px rgba(0, 194, 255, 0.7),
+  0 0 15px rgba(0, 194, 255, 0.5);
+  transform: scale(1.2);
 }
 .aboutMe{
-  min-height: 100vh;
   scroll-margin-top: 50px;
   width:80%;
 }
 
-.aboutMe h1{
+
+.aboutMe-title{
+  margin-top:50px;
+  margin-bottom:50px;
+  font-size:25px;
   color:white;
   text-align: left;
   text-shadow: 
-  0 0 5px rgba(0, 194, 255, 0.8),
-  0 0 10px rgba(0, 194, 255, 0.6);  /* optional: extend the glow */
+   0 0 5px rgba(0, 194, 255, 1),
+  0 0 10px rgba(0, 194, 255, 0.7),
+  0 0 15px rgba(0, 194, 255, 0.5);
 }
 
-.aboutMe h2{
-  margin-top: 50px;
+.aboutMe-description{
+   /* color: rgba(255, 165, 0, 0.6); */
   color: white;
-  text-shadow:
-  0 0 5px rgba(0, 194, 255, 0.8),
-  0 0 10px rgba(0, 194, 255, 0.6);
+  text-align:left;
+  font-size: 20px; /* adjust as needed */
+  max-width: 650px;   /* optional, for better line length */
 
 }
 
-.aboutMe p{
-  /* color: rgba(255, 165, 0, 0.6); */
-  color: white;
-  text-align: left;
-  font-size: 25px;
-  text-shadow: 
-  0 0 4px rgba(255, 165, 0, 0.7),
-  0 0 10px rgba(255, 140, 0, 0.5),
-  0 0 20px rgba(255, 120, 0, 0.3);
-}
+
 
 .resume-wrapper{
-  margin-top:100px;
+  width:100%;
 }
 
 .Projects{
