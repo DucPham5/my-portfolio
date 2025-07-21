@@ -1,59 +1,48 @@
 import { useState } from 'react'
+import { FiArrowUpRight } from "react-icons/fi";
 import {motion} from "framer-motion"
 import './App.css'
+import ProjectCard from './components/projectCard';
+import AboutMe from './components/aboutMe';
+
+
+const projects = [
+  {
+    title: "Portfolio Website",
+    description: "A personal portfolio built with React and Framer Motion.",
+    img: "/test.webp",
+
+  },
+  {
+    title: "Weather App",
+    description: "A web app that fetches weather data using an API."
+  },
+  {
+    title: "Task Manager",
+    description: "A task tracking tool with local storage and custom styling."
+  },
+  {
+    title: "E-commerce Site",
+    description: "A full-stack e-commerce application with user authentication and payment integration."
+  }
+];
+
+
 
 function App() {
   const header = "> Duc Pham".split(" ")
   const intro = "Welcome to my personal portfolio! I am a Computer Science student at the University of Houston and am an incoming software engineering intern at Boeing.".split(" ")
-  const interest = " My interests lie in full-stack development, user experience, and scalable software design. I enjoy working on projects that combine functionality with clean, modern design, and I’m always seeking opportunities to grow as a developer.".split(" ")
   return (
-    <div className = "portfolio-wrapper">
+    <div className = "portfolio-wrapper" style={{ position: 'relative' }}>
     <nav className = "nav-sections">
       <a href="#aboutMe">About Me</a>
       <a href="#Projects">Projects</a>
+      <a href = "Experience">Experience</a>
       <a href="#Contact">Contact</a>
     </nav>
     {/*end of navbar */}
 
-    <motion.section 
-    id = "aboutMe" 
-    className = "aboutMe"
-    initial = {{opacity: 0, scale: 0.95 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
-    viewport={{ once: false, amount: 0.4 }}
-    >
-      <div class = "aboutMe-title">
-      <h1>{header.map((el, i) => (
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 0.25,
-            delay: i /10
-          }}
-          key={i}
-        >
-          {el}{" "}
-        </motion.span>
-      ))}</h1>
-      </div>
-      <div class = "aboutMe-description">
-      <p>{intro.map((el, i) => (
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay:  header.length * 0.1 + 1.0, 
-            duration: 0.5
-          }}
-          key={i}
-        >
-          {el}{" "}
-        </motion.span>
-      ))}</p>
-      </div>
-    </motion.section>
+    <AboutMe header={header} intro={intro} />
     {/*end of aboutMe section */}
 
     <motion.section 
@@ -65,21 +54,12 @@ function App() {
     viewport={{ once: false, amount: 0.3 }}
     >
       <h2>Projects</h2>
-      <div className = "projects-container">
-          <div className = "projects">
+      <div className="projects-container">
+  {projects.map((project, index) => (
+    <ProjectCard key={index} project={project} />
+  ))}
+</div>
 
-          </div>
-          <div className = "projects">
-            
-          </div>
-          <div className = "projects">
-            
-          </div>
-
-
-      </div>
-
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum dignissimos at error odit doloremque quam explicabo numquam. Vero nam eos laboriosam voluptatem exercitationem accusantium dolorum aliquam, fugit eaque natus!</p>
     </motion.section>
     {/*end of projects section */}
 

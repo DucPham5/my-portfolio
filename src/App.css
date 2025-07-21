@@ -3,7 +3,14 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  max-width: none;
+  
+}
+
+:root{
+  --blue-glow:
+  0 0 5px rgba(0, 194, 255, 1),
+  0 0 10px rgba(0, 194, 255, 0.7),
+  0 0 15px rgba(0, 194, 255, 0.5);
 }
 
 
@@ -30,7 +37,9 @@ html {
   align-items: center;
   justify-content: flex-start;
   padding-top: 0rem; /* pushes content down without creating external gap */
-
+  background-image: radial-gradient(rgba(236, 221, 221, 0.12) 2px, transparent 0);
+  background-size: 24px 24px; /* spacing between dots */
+  
 
 }
 .nav-sections{
@@ -42,7 +51,6 @@ html {
   gap:30px;
   border-radius: 20px;
   padding: 1rem;
-  backdrop-filter: blur(4px); 
   flex-wrap: wrap;       /* allow items to wrap instead of stretching */
   justify-content: flex-end; /* keeps nav items centered */
   margin-left: auto;
@@ -53,7 +61,7 @@ html {
 .nav-sections a{
   position:relative;
   color:white;
-  font-size: 1.5rem; 
+  font-size: 1.2rem; 
   font-weight: bold; 
   transition: 
   color 0.3s ease-in-out, 
@@ -65,9 +73,7 @@ html {
 .nav-sections a:hover {
   color: white; 
   text-shadow: 
-  0 0 5px rgba(0, 194, 255, 1),
-  0 0 10px rgba(0, 194, 255, 0.7),
-  0 0 15px rgba(0, 194, 255, 0.5);
+  var(--blue-glow);
   transform: scale(1.2);
 }
 .aboutMe{
@@ -77,15 +83,11 @@ html {
 
 
 .aboutMe-title{
-  margin-top:50px;
-  margin-bottom:50px;
   font-size:25px;
   color:white;
   text-align: left;
   text-shadow: 
-   0 0 5px rgba(0, 194, 255, 1),
-  0 0 10px rgba(0, 194, 255, 0.7),
-  0 0 15px rgba(0, 194, 255, 0.5);
+   var(--blue-glow);
 }
 
 .aboutMe-description{
@@ -98,12 +100,80 @@ html {
 }
 
 
-
-.resume-wrapper{
-  width:100%;
+.aboutMe-title h1 {
+  margin-bottom: 50px; /* reduce gap under title */
 }
+
+.aboutMe-description p {
+  margin-top: 0; /* remove top margin above paragraph */
+}
+
+
+
+
+.resumeWrapper {
+  width: 60%;          /* same as .aboutMe */
+  text-align: center;    /* align content inside to left */
+  margin-top: 45px;    /* spacing from description */
+}
+
+.resume-button {
+  background-color: #121212;
+  color: white; /* vibrant blue */
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 25px;
+  border: 2px solid white;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: 
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.resume-button:hover {
+  color: white;
+  text-shadow:
+    var(--blue-glow);
+  transform: scale(1.05);
+}
+
+
+.resume-button:hover .resume-icon {
+  filter: drop-shadow(0 0 5px #00c2ff) drop-shadow(0 0 10px #00c2ff) drop-shadow(0 0 15px #00c2ff);
+}
+
 
 .Projects{
-  width: 80%;
+  width: 90%;
   margin-top: 100px;
 }
+.projects-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.project-card{
+  border: 1px solid white;
+  border-radius: 10px;
+  
+  padding: 15px;
+  margin:20px;
+  backdrop-filter: blur(3px); 
+  
+}
+.project-card:hover{
+ box-shadow: 0px 0px 15px rgba(0, 194, 255, 1);
+ transform: scale(1.03);
+}
+.project-card .card-img{
+  width:90%;
+  height:auto;
+  height: auto;
+  border-radius: 8px;
+}
+
+
