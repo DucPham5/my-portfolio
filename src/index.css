@@ -20,9 +20,9 @@ a {
 }
 
 @font-face {
-  font-family: 'Cyberpunk';
-  src: url('./assets/fonts/Interceptor.otf') format('truetype');
-  font-weight: normal;
+  font-family: 'JetBrains Mono';
+  src: url('./assets/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
   font-style: normal;
 }
 
@@ -33,7 +33,7 @@ body {
   min-width: 100%;
   min-height: 100vh;
   background-color: #121212;
-  font-family: 'Cyberpunk', sans-serif;
+  font-family: 'JetBrains Mono', sans-serif;
   
 }
 

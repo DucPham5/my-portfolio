@@ -25,9 +25,16 @@ function AboutMe({ header, intro }) {
               }}
               key={i}
             >
-              {el}{" "}
+              {el}{i < header.length - 1 ? " " : ""}
             </motion.span>
           ))}
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: header.length * 0.1 + 0.1, duration: 0.25 }}
+          >
+            <span className="cursor">_</span>
+          </motion.span>
         </h1>
       </div>
       <div className="aboutMe-description">

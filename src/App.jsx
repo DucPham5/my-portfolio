@@ -4,6 +4,7 @@ import {motion} from "framer-motion"
 import './App.css'
 import ProjectCard from './components/projectCard';
 import AboutMe from './components/aboutMe';
+import DotGrid from './components/dotGrid';
 
 
 const projects = [
@@ -33,11 +34,13 @@ function App() {
   const header = "> Duc Pham".split(" ")
   const intro = "Welcome to my personal portfolio! I am a Computer Science student at the University of Houston and am an incoming software engineering intern at Boeing.".split(" ")
   return (
+    
     <div className = "portfolio-wrapper" style={{ position: 'relative' }}>
+    <DotGrid />
     <nav className = "nav-sections">
       <a href="#aboutMe">About Me</a>
       <a href="#Projects">Projects</a>
-      <a href = "Experience">Experience</a>
+      <a href = "#Experience">Experience</a>
       <a href="#Contact">Contact</a>
     </nav>
     {/*end of navbar */}

@@ -39,8 +39,6 @@ html {
   align-items: center;
   justify-content: flex-start;
   padding-top: 0rem; /* pushes content down without creating external gap */
-  background-image: radial-gradient(rgba(236, 221, 221, 0.12) 2px, transparent 0);
-  background-size: 24px 24px; /* spacing between dots */
   
 
 }
@@ -80,7 +78,7 @@ html {
 .aboutMe{
   scroll-margin-top: 50px;
   width:80%;
-  min-height: 100%;
+  height: 100vh;
 }
 
 
@@ -111,7 +109,16 @@ html {
 }
 
 
+.cursor {
+  display: inline-block;
+  animation: blink 1s step-start infinite;
+  color: white;
+}
 
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
 .resumeWrapper {
   width: 60%;          /* same as .aboutMe */
@@ -178,5 +185,6 @@ html {
   height: auto;
   border-radius: 8px;
 }
+
 
 
