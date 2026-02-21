@@ -43,15 +43,19 @@ html {
    — 1.5rem on desktop, scales down on smaller screens
    =========================== */
 .nav-sections {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(8px);
   width: 100%;
   display: flex;
   gap: clamp(14px, 2.5vw, 30px);
-  padding: clamp(0.4rem, 1.2vw, 1rem) clamp(1rem, 8vw, 120px); /* top/bottom left/right */
+  padding: clamp(0.4rem, 1.2vw, 1rem) clamp(1rem, 8vw, 120px);
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
   box-sizing: border-box;
-  margin-top: clamp(16px, 3vh, 60px);
 }
 
 .nav-sections a {
@@ -71,6 +75,13 @@ html {
   transform: scale(1.2);
 }
 
+.nav-name {
+  margin-right: auto;  /* pushes all links to the right */
+  color: white;
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+  font-weight: bold;
+  text-shadow: var(--blue-glow);
+}
 
 /* ===========================
 Hero
@@ -80,6 +91,7 @@ Hero
   scroll-margin-top: clamp(30px, 5vh, 60px);
   width: var(--section-width);
   height: 100vh;
+  padding-top: clamp(40px, 10vh, 120px); /* add this */
 }
 
 .hero-title {

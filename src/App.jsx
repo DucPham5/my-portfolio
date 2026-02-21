@@ -39,6 +39,7 @@ function App() {
     <DotGrid />
 
     <nav className = "nav-sections">
+      <a href="#hero" className="nav-name">Duc</a>
       <a href="#aboutMe">About Me</a>
       <a href="#Projects">Projects</a>
       <a href="#Experience">Experience</a>
