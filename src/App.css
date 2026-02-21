@@ -3,18 +3,16 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  
 }
 
-:root{
+:root {
   --blue-glow:
-  0 0 5px rgba(0, 194, 255, 1),
-  0 0 10px rgba(0, 194, 255, 0.7),
-  0 0 15px rgba(0, 194, 255, 0.5);
+    0 0 5px rgba(0, 194, 255, 1),
+    0 0 10px rgba(0, 194, 255, 0.7),
+    0 0 15px rgba(0, 194, 255, 0.5);
+
+  --section-width: 80%;
 }
-
-
-
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
@@ -22,93 +20,104 @@
   }
 }
 
-
-
 html {
   scroll-behavior: smooth;
 }
 
-
-.portfolio-wrapper{
+/* ===========================
+   WRAPPER
+   =========================== */
+.portfolio-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height:100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 0rem; /* pushes content down without creating external gap */
-  
-
 }
-.nav-sections{
-  width: 100%;
 
-  top:0;
+/* ===========================
+   NAV
+   — 1.5rem on desktop, scales down on smaller screens
+   =========================== */
+.nav-sections {
+  width: var(--section-width);
+  top: 0;
   right: 0;
   display: flex;
-  gap:30px;
-  padding: 1rem;
-  flex-wrap: wrap;       /* allow items to wrap instead of stretching */
-  justify-content: flex-end; /* keeps nav items centered */
+  gap: clamp(14px, 2.5vw, 30px);
+  padding: clamp(0.5rem, 1.2vw, 1rem);
+  flex-wrap: wrap;
+  justify-content: flex-end;
   margin-left: auto;
   box-sizing: border-box;
-  margin-top: 5vh;
+  margin-top: clamp(16px, 3vh, 60px);
 }
 
-.nav-sections a{
-  position:relative;
-  color:white;
-  font-size: 1.5rem; 
-  font-weight: bold; 
-  transition: 
-  color 0.3s ease-in-out, 
-  text-shadow 0.3s ease-in-out,  
-  transform 0.3s ease-in-out; ;
-  
+.nav-sections a {
+  position: relative;
+  color: white;
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem); /* preserves 1.5rem, shrinks on mobile */
+  font-weight: bold;
+  text-decoration: none;
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
 .nav-sections a:hover {
-  color: white; 
-  text-shadow: 
-  var(--blue-glow);
+  color: white;
+  text-shadow: var(--blue-glow);
   transform: scale(1.2);
 }
-.aboutMe{
-  scroll-margin-top: 50px;
-  width:80%;
+
+.nav-initials {
+  margin-right: auto; /* pushes everything else to the right */
+  color: white;
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+  font-weight: bold;
+  text-shadow: var(--blue-glow);
+}
+
+/* ===========================
+Hero
+   =========================== */
+/* was .aboutMe */
+.hero {
+  scroll-margin-top: clamp(30px, 5vh, 60px);
+  width: var(--section-width);
   height: 100vh;
 }
 
-
-.aboutMe-title{
-  font-size:clamp(1rem, 3.8vh, 5rem);
-  color:white;
-  text-align: left;
-  text-shadow: 
-   var(--blue-glow);
-}
-
-.aboutMe-description{
-   /* color: rgba(255, 165, 0, 0.6); */
+.hero-title {
+  font-size: clamp(1rem, 3.8vh, 5rem);
   color: white;
-  text-align:left;
+  text-align: left;
+  text-shadow: var(--blue-glow);
+}
+
+
+.hero-title h1 {
+  margin-bottom: clamp(20px, 5vh, 50px);
+}
+
+.hero-description {
+  color: white;
+  text-align: left;
   font-size: clamp(1rem, 3vh, 3rem);
-  max-width: 650px;   /* optional, for better line length */
-
+  max-width: clamp(280px, 65ch, 650px);
 }
 
-
-.aboutMe-title h1 {
-  margin-bottom: 50px; /* reduce gap under title */
+.hero-description p {
+  margin-top: 0;
 }
 
-.aboutMe-description p {
-  margin-top: 0; /* remove top margin above paragraph */
-}
-
-
+/* ===========================
+   CURSOR
+   =========================== */
 .cursor {
   display: inline-block;
   animation: blink 1s step-start infinite;
@@ -117,27 +126,37 @@ html {
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  50%       { opacity: 0; }
 }
 
+/* ===========================
+   RESUME BUTTON
+   =========================== */
 .resumeWrapper {
-  width: 60%;          /* same as .aboutMe */
-  text-align: center;    /* align content inside to left */
-  margin-top: 45px;    /* spacing from description */
+  width: var(--section-width);
+  margin-top: clamp(20px, 4.5vh, 45px);
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start; /* anchors wrapper to the left edge of the column */
+  margin-left: 0;
+  padding-left: 20%;
+
 }
 
 .resume-button {
   background-color: #121212;
-  color: white; /* vibrant blue */
+  color: white;
   font-weight: bold;
-  font-size: clamp(0.875rem, 1.92vh, 2rem);
-  padding: 12px 25px;
+  font-size: clamp(0.8rem, 1.92vh, 2rem);
+  padding: clamp(8px, 1.2vh, 12px) clamp(14px, 2vw, 25px);
   border: 2px solid white;
   border-radius: 30px;
   cursor: pointer;
   text-decoration: none;
-  display: inline-block;
-  transition: 
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition:
     background-color 0.3s ease-in-out,
     color 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out,
@@ -146,45 +165,96 @@ html {
 
 .resume-button:hover {
   color: white;
-  text-shadow:
-    var(--blue-glow);
+  text-shadow: var(--blue-glow);
   transform: scale(1.05);
 }
 
-
 .resume-button:hover .resume-icon {
-  filter: drop-shadow(0 0 5px #00c2ff) drop-shadow(0 0 10px #00c2ff) drop-shadow(0 0 15px #00c2ff);
+  filter:
+    drop-shadow(0 0 5px #00c2ff)
+    drop-shadow(0 0 10px #00c2ff)
+    drop-shadow(0 0 15px #00c2ff);
 }
 
+/* ===========================
+   PROJECTS
+   =========================== */
+.Projects {
+  width: var(--section-width);
+  margin-top: clamp(50px, 10vh, 120px);
+}
 
-.Projects{
-  width: 90%;
-  margin-top: 100px;
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 2vh, 1.5rem);
 }
-.projects-container{
-  display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-.project-card{
+
+/* ===========================
+   PROJECT CARD
+   =========================== */
+.project-card {
   border: 1px solid white;
-  border-radius: 10px;
-  
-  padding: 15px;
-  margin:20px;
-  backdrop-filter: blur(3px); 
-  
-}
-.project-card:hover{
- box-shadow: 0px 0px 15px rgba(0, 194, 255, 1);
- transform: scale(1.03);
-}
-.project-card .card-img{
-  width:90%;
-  height:auto;
-  height: auto;
-  border-radius: 8px;
+  border-radius: clamp(6px, 1vw, 10px);
+  padding: clamp(10px, 1.5vw, 15px);
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(12px, 2vw, 24px);
+  width: 100%;
+  box-sizing: border-box;
+  transition:
+    box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
+.project-card:hover {
+  box-shadow: 0px 0px 15px rgba(0, 194, 255, 1);
+  transform: scale(1.03);
+}
 
+.project-card .card-img {
+  width: clamp(120px, 22vw, 280px);
+  height: clamp(80px, 15vw, 180px);
+  object-fit: cover;
+  border-radius: clamp(4px, 0.8vw, 8px);
+  flex-shrink: 0;
+}
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+  gap: clamp(4px, 1vh, 10px);
+}
+
+/* ===========================
+   RESPONSIVE — mobile
+   =========================== */
+@media (max-width: 600px) {
+  .project-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-card .card-img {
+    width: 100%;
+    height: clamp(140px, 45vw, 220px);
+  }
+
+  .nav-sections {
+    justify-content: center;
+  }
+}
+
+/* ===========================
+   REDUCED MOTION
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; opacity: 1; }
+  .project-card:hover { transform: none; }
+  .resume-button:hover { transform: none; }
+  .nav-sections a:hover { transform: none; }
+}

@@ -3,7 +3,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 import {motion} from "framer-motion"
 import './App.css'
 import ProjectCard from './components/projectCard';
-import AboutMe from './components/aboutMe';
+import Hero from './components/Hero';
 import DotGrid from './components/dotGrid';
 
 
@@ -32,21 +32,22 @@ const projects = [
 
 function App() {
   const header = "> Duc Pham".split(" ")
-  const intro = "Welcome to my personal portfolio! I am a Computer Science student at the University of Houston and am an incoming software engineering intern at Boeing.".split(" ")
+  const intro = "Welcome to my personal portfolio! I am a Computer Science student at the University of Houston and am currently a software engineering intern at Boeing.".split(" ")
   return (
     
     <div className = "portfolio-wrapper" style={{ position: 'relative' }}>
     <DotGrid />
+
     <nav className = "nav-sections">
       <a href="#aboutMe">About Me</a>
       <a href="#Projects">Projects</a>
-      <a href = "#Experience">Experience</a>
+      <a href="#Experience">Experience</a>
       <a href="#Contact">Contact</a>
     </nav>
     {/*end of navbar */}
 
-    <AboutMe header={header} intro={intro} />
-    {/*end of aboutMe section */}
+    <Hero header={header} intro={intro} />
+
 
     <motion.section 
     id = "Projects" 
@@ -61,7 +62,7 @@ function App() {
   {projects.map((project, index) => (
     <ProjectCard key={index} project={project} />
   ))}
-</div>
+      </div>
 
     </motion.section>
     {/*end of projects section */}

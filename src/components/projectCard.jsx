@@ -3,9 +3,11 @@ import React from 'react';
 function ProjectCard({ project }) {
   return (
     <div className="project-card">
-        <img className = "card-img" src={project.img} alt={project.title} />
-      <h3 className="project-title">{project.title}</h3>
-      <p className="project-description">{project.description}</p>
+      <img className="card-img" src={project.img} alt={project.title} />
+      <div className="card-content">
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-description">{project.description}</p>
+      </div>
     </div>
   );
 }

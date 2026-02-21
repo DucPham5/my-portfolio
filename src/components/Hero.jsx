@@ -1,19 +1,20 @@
-// AboutMe.jsx
+// Hero.jsx
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FiArrowUpRight } from 'react-icons/fi'
+import resume from '../assets/Duc_Resume_2026_Q1.pdf'
 
-function AboutMe({ header, intro }) {
+function Hero({ header, intro }) {
   return (
     <motion.section
-      id="aboutMe"
-      className="aboutMe"
+      id="hero"
+      className="hero"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: false, amount: 0.4 }}
     >
-      <div className="aboutMe-title">
+      <div className="hero-title">
         <h1>
           {header.map((el, i) => (
             <motion.span
@@ -37,7 +38,7 @@ function AboutMe({ header, intro }) {
           </motion.span>
         </h1>
       </div>
-      <div className="aboutMe-description">
+      <div className="hero-description">
         <p>
           {intro.map((el, i) => (
             <motion.span
@@ -56,7 +57,7 @@ function AboutMe({ header, intro }) {
       </div>
       <div className="resumeWrapper">
         <a
-          href="/Duc_Resume_2025_q2.pdf"
+          href={resume}
           target="_blank"
           rel="noopener noreferrer"
           className="resume-button"
@@ -68,4 +69,4 @@ function AboutMe({ header, intro }) {
   )
 }
 
-export default AboutMe
+export default Hero
