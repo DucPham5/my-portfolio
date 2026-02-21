@@ -43,24 +43,21 @@ html {
    — 1.5rem on desktop, scales down on smaller screens
    =========================== */
 .nav-sections {
-  width: var(--section-width);
-  top: 0;
-  right: 0;
+  width: 100%;
   display: flex;
   gap: clamp(14px, 2.5vw, 30px);
-  padding: clamp(0.5rem, 1.2vw, 1rem);
+  padding: clamp(0.4rem, 1.2vw, 1rem) clamp(1rem, 8vw, 120px); /* top/bottom left/right */
   flex-wrap: wrap;
   justify-content: flex-end;
-  margin-left: auto;
+  align-items: center;
   box-sizing: border-box;
   margin-top: clamp(16px, 3vh, 60px);
 }
 
 .nav-sections a {
-  position: relative;
-  color: white;
-  font-size: clamp(0.9rem, 1.5vw, 1.5rem); /* preserves 1.5rem, shrinks on mobile */
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
   font-weight: bold;
+  color: white;
   text-decoration: none;
   transition:
     color 0.3s ease-in-out,
@@ -74,13 +71,6 @@ html {
   transform: scale(1.2);
 }
 
-.nav-initials {
-  margin-right: auto; /* pushes everything else to the right */
-  color: white;
-  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
-  font-weight: bold;
-  text-shadow: var(--blue-glow);
-}
 
 /* ===========================
 Hero
